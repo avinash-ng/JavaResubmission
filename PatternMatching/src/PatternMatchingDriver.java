@@ -2,6 +2,8 @@ import java.util.*;
 import java.io.InputStreamReader;
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 class PatternMatching
 {
@@ -34,16 +36,17 @@ class PatternMatching
 
 public class PatternMatchingDriver {
 	 public static void main(String args[]) throws IOException{
-		 	PatternMatching pObj = new PatternMatching();
-	        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-	        String input = br.readLine();
-	        if(!(pObj.containsAToZ(input)))
+		Logger logger = Logger.getLogger(PatternMatching.class.getName());
+		PatternMatching patternObj = new PatternMatching();
+	        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+	        String input = bufferedReader.readLine();
+	        if(!(patternObj.containsAToZ(input)))
 	        {
-	            System.out.println(input+" does not contain a-z characters");
+	            logger.log(Level.INFO, "doesn't contain a-z characters");
 	        }
 	        else
 	        {
-	            System.out.println(input+" does contain a-z characters");
+	            logger.log(Level.INFO, "does contain a-z characters");
 	        }
 	    }
 }
