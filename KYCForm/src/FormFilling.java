@@ -60,11 +60,12 @@ public class FormFilling
 
     public static void main(String args[]) throws IOException
     {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int number = Integer.parseInt(br.readLine());
+	Logger logger = Logger.getLogger(FormFilling.class.getName());
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        int number = Integer.parseInt(bufferedReader.readLine());
         List<String> list = new ArrayList<String>();
         while(number > 0){
-            String []arr = br.readLine().split("\\s");
+            String []arr = bufferedReade.readLine().split("\\s");
             String firstFilledDate = arr[0];
             String currentDate = arr[1];
             try{
@@ -77,6 +78,6 @@ public class FormFilling
 
             number -= 1;
         }
-        for(String s: list) System.out.println(s);
+        for(String s: list) logger.log(Level.INFO, s);
     }
 }
